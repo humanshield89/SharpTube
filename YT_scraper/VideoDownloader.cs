@@ -210,7 +210,7 @@ namespace YT_scraper
 
         public static void CloseCancel(FormClosingEventArgs e)
         {
-            const string message = "Closing this window will cancel the download /n are you sure you want to close this window? ";
+            const string message = "Closing this window will cancel the download ,Your progress so far will be lose and you will have to redownload the file from the start. \n\n Are you sure you want to close this window? ";
             const string caption = "Cancel Download ?";
             var result = MessageBox.Show(message, caption,
                                          MessageBoxButtons.YesNo,
