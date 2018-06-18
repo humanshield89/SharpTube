@@ -131,12 +131,19 @@ namespace YT_scraper
             // TODO if a file like this already exists warn the user of the duplicated download 
             // don't waste his 
             localFileLocation = Constants.downloadFolder + @"\" + $"[{video.Resolution}]" + video.FullName;
-            const string message = "This video has been already downloaded \n Do you want to re-Download it again ? ";
-            const string caption = "Redownload  ?";
-            var result = MessageBox.Show(message, caption,
-                                         MessageBoxButtons.YesNo,
-                                         MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            bool download = true;
+            if (File.Exists(localFileLocation))
+            {
+                const string message = "This video has been already downloaded \n Do you want to re-Download it again ? ";
+                const string caption = "Redownload  ?";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                    download = false;
+            }
+
+            if(download)
                 try
                 {
                     tempDownloadFile = Path.GetTempPath() + @"\YT_Utility/" + $"[{video.Resolution}]" + video.FullName;
@@ -156,13 +163,11 @@ namespace YT_scraper
                     webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadFinished);
                     webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
                     webClient.DownloadFileAsync(new Uri(video.Uri), tempDownloadFile);
-                    startTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+                    //startTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
                     labRemoteLink.Text = VideoURL;
-                    labLocalFile.Text = video.Resolution + "_" + video.FullName;
+                    labLocalFile.Text = $"[{video.Resolution}]" + video.FullName;
                     Text = "Downloading " + $"[{video.Resolution}]" + video.FullName;
-
-
-                }
+                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
@@ -187,7 +192,15 @@ namespace YT_scraper
             // remaining time = now * 100 / now-start
             if (e.ProgressPercentage > 0)
             {
-                long time = (e.TotalBytesToReceive - e.BytesReceived) / ((e.BytesReceived) / (now - startTime));
+                long time = 1 ;
+                try
+                {
+                    time = (e.TotalBytesToReceive - e.BytesReceived) / ((e.BytesReceived) / (now - startTime));
+                }
+                catch (DivideByZeroException)
+                {
+
+                }
                 int hours;
                 int minutes;
                 int seconds;
@@ -226,9 +239,10 @@ namespace YT_scraper
             labDownSpeed.Text = "Finished!";
             labTimeRemaining.Text = "Finished!";
             downloadFinished = true;
+            if (File.Exists(tempDownloadFile))
             if (new FileInfo(tempDownloadFile).Length == totalSize)
             {
-                //TopMost = true;
+                TopMost = true;
                 Activate();
                 if (!File.Exists(localFileLocation))
                 {
