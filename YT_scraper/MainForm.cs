@@ -26,6 +26,7 @@ namespace YT_scraper
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            btnSearch.Enabled = false;
             listResults.Items.Clear();
             if (txtSearchQuery.Text == "") return;
             results = YoutubeScrapeEngine.scrapeYoutube(txtSearchQuery.Text);
@@ -51,29 +52,31 @@ namespace YT_scraper
                         {
                             Console.WriteLine(ex.StackTrace);
                         }
+                        string[] arr = { "", "" + i, video.title, video.url };
+                        ListViewItem l = new ListViewItem(arr)
+                        {
+                            Font = new Font("Century Gothic", 10.75F, FontStyle.Regular, GraphicsUnit.Point, 0),
+                            ImageIndex = i
+                        };
+                        listResults.Items.Add(l);
+
+
+                        i++;
                     }
                 }
                 listResults.SmallImageList = imageList;
-                foreach (VideoItem video in results)
-                {
-                    string[] arr = { "", ""+i, video.title, video.url };
-                    ListViewItem l = new ListViewItem(arr)
-                    {
-                        Font = new Font("Century Gothic", 10.75F, FontStyle.Regular, GraphicsUnit.Point, 0),
-                        ImageIndex = i
-                    };
-                    listResults.Items.Add(l);
-
-
-                    i++;
-                }
-
             }
             else
             {
                 listResults.Items.Add(new ListViewItem("No Results check your enternet connection "));
             }
-            
+            btnSearch.Enabled = true;
+            //long start = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            foreach (var video in results)
+            {
+                video.LoadVideos();
+            }
+            //MessageBox.Show("Total time = " + (DateTimeOffset.Now.ToUnixTimeMilliseconds() - start));
         }
 
         private void listResults_Mouse_Clicked(object sender, MouseEventArgs e)
@@ -82,37 +85,48 @@ namespace YT_scraper
             {
                 if (listResults.FocusedItem.Bounds.Contains(e.Location))
                 {
+                    int index = listResults.FocusedItem.Index;
                     contextMenuStrip1.Show(Cursor.Position);
- 
+                    if (results[index].videos != null)
+                    if (results[index].videos.Any())
+                    {
+                         MenuItemDownload.DropDownItems.Clear();
+                        foreach (var video in results[index].videos)
+                        {
+                            if(video.Resolution != -1)
+                            {
+                                ToolStripMenuItem t = new ToolStripMenuItem();
+                                t.Text = video.Resolution + " " + video.FileExtension;
+                                t.Click += new EventHandler(MenuItemDownloadResolution_Click);
+                                MenuItemDownload.DropDownItems.Add(t);
+                            }
+                        }
+                    }
+
                 }
             }
         }
 
-        private void DownloadStripClick(object sender, EventArgs e)
+        private void MenuItemDownloadResolution_Click(object sender, EventArgs e)
         {
+            ToolStripMenuItem t = (ToolStripMenuItem)(sender);
+            string[] infos = t.Text.Split(' ');
+            int res = int.Parse(infos[0]);
+
             int index = listResults.FocusedItem.Index;
             VideoItem video = results[index];
-            //Thread thread = new Thread((ThreadStart)delegate
-            //{
-                openNewDownloadForm(video);
-
-            //});
-            //thread.Start();
+            openNewDownloadForm(video.getYouTubeVideoWithResAndExt(res,infos[1]) , results[index].url);
         }
 
-        private void openNewDownloadForm(VideoItem item)
+        private void openNewDownloadForm(YouTubeVideo item , string url)
         {
             VideoDownloader videoDownloader = new VideoDownloader();
             videoDownloader.Visible = true;
-            videoDownloader.DownloadVideo(item);
+            videoDownloader.DownloadVideo(item , url);
         }
 
  
 
-         private void MenuItemDownload_Click(object sender, EventArgs e)
-        {
-            DownloadStripClick( sender,  e);
-        }
 
         private void toolStripMenuItemOpenInBrowser_Click(object sender, EventArgs e)
         {

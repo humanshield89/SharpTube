@@ -21,11 +21,11 @@ namespace YT_scraper
         private long startTime;
         private long lastProgress;
         private long lastTime;
-        private string localFileLocation ;
+        private string localFileLocation;
         private string tempDownloadFile;
         private bool downloadFinished = false;
         private bool downloadStarted = false;
-        private long totalSize ;
+        private long totalSize;
         WebClient webClient = new WebClient();
         public VideoDownloader()
         {
@@ -84,7 +84,7 @@ namespace YT_scraper
 
         public void DownloadVideo(VideoItem videoItem)
         {
-           try
+            try
             {
 
                 // saveFileDialog1.DefaultExt = videoInfo.VideoExtension;
@@ -92,33 +92,33 @@ namespace YT_scraper
                 // Console.WriteLine(saveFileDialog1.FileName);
                 var youTube = YouTube.Default; // starting point for YouTube actions
                 var video = youTube.GetVideo(videoItem.url); // gets a Video object with info about the video
-                                                                  //MessageBox.Show(downloadFolder+ @"\" + video.FullName);
-                
+                                                             //MessageBox.Show(downloadFolder+ @"\" + video.FullName);
+
                 //File.WriteAllBytes(downloadFolder +@"\"+ video.FullName, video.GetBytes());
-                    tempDownloadFile = Path.GetTempPath() + @"\YT_Utility/" + video.FullName;
+                tempDownloadFile = Path.GetTempPath() + @"\YT_Utility/" + video.FullName;
                 if (File.Exists(tempDownloadFile))
                 {
                     try
                     {
                         File.Delete(tempDownloadFile);
                     }
-                    catch(Exception ex )
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("ERROR ",ex.Message);
+                        MessageBox.Show("ERROR ", ex.Message);
                         Dispose();
                     }
 
                 }
-                    webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadFinished);
-                    webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-                    webClient.DownloadFileAsync(new Uri(video.Uri), tempDownloadFile);
-                    startTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-                    localFileLocation = Constants.downloadFolder + @"\" + video.FullName;
-                    labRemoteLink.Text = videoItem.url;
-                    labLocalFile.Text = video.FullName;
-                    this.Text = "Downloading " + video.FullName;
+                webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadFinished);
+                webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
+                webClient.DownloadFileAsync(new Uri(video.Uri), tempDownloadFile);
+                startTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+                localFileLocation = Constants.downloadFolder + @"\" + video.FullName;
+                labRemoteLink.Text = videoItem.url;
+                labLocalFile.Text = video.FullName;
+                this.Text = "Downloading " + video.FullName;
 
-                
+
             }
             catch (Exception ex)
             {
@@ -126,20 +126,68 @@ namespace YT_scraper
             }
         }
 
+        public void DownloadVideo(YouTubeVideo video, string VideoURL)
+        {
+            // TODO if a file like this already exists warn the user of the duplicated download 
+            // don't waste his 
+            localFileLocation = Constants.downloadFolder + @"\" + $"[{video.Resolution}]" + video.FullName;
+            const string message = "This video has been already downloaded \n Do you want to re-Download it again ? ";
+            const string caption = "Redownload  ?";
+            var result = MessageBox.Show(message, caption,
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+                try
+                {
+                    tempDownloadFile = Path.GetTempPath() + @"\YT_Utility/" + $"[{video.Resolution}]" + video.FullName;
+                    if (File.Exists(tempDownloadFile))
+                    {
+                        try
+                        {
+                            File.Delete(tempDownloadFile);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("ERROR ", ex.Message);
+                            Dispose();
+                        }
+
+                    }
+                    webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadFinished);
+                    webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
+                    webClient.DownloadFileAsync(new Uri(video.Uri), tempDownloadFile);
+                    startTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+                    labRemoteLink.Text = VideoURL;
+                    labLocalFile.Text = video.Resolution + "_" + video.FullName;
+                    Text = "Downloading " + $"[{video.Resolution}]" + video.FullName;
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            else
+            {
+                webClient.Dispose();
+                Dispose();
+            }
+        }
+
         private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-            long sizeDiferenc = e.BytesReceived -lastProgress;
-            labFileSizeValue.Text = String.Format("{0:0.00}", (double)(e.TotalBytesToReceive / 1024) / 1024) +" MB";
+            long sizeDiferenc = e.BytesReceived - lastProgress;
+            labFileSizeValue.Text = String.Format("{0:0.00}", (double)(e.TotalBytesToReceive / 1024) / 1024) + " MB";
             labDownloadSize.Text = String.Format("{0:0.00}", (double)(e.BytesReceived / 1024) / 1024) + " MB";
             long now = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             long timeDiference = now - lastTime;
-            labDownSpeed.Text = ((e.BytesReceived) / (now - startTime)) + " Kb/s" ;
+            labDownSpeed.Text = ((e.BytesReceived) / (now - startTime)) + " Kb/s";
             // x time ====> 100% 
             // now ========> e.percentage
             // remaining time = now * 100 / now-start
-            if(e.ProgressPercentage > 0)
+            if (e.ProgressPercentage > 0)
             {
-                long time = (e.TotalBytesToReceive - e.BytesReceived)/ ((e.BytesReceived) / (now - startTime));
+                long time = (e.TotalBytesToReceive - e.BytesReceived) / ((e.BytesReceived) / (now - startTime));
                 int hours;
                 int minutes;
                 int seconds;
@@ -178,12 +226,33 @@ namespace YT_scraper
             labDownSpeed.Text = "Finished!";
             labTimeRemaining.Text = "Finished!";
             downloadFinished = true;
-            if(new FileInfo(tempDownloadFile).Length == totalSize)
-                File.Move(tempDownloadFile, localFileLocation);
+            if (new FileInfo(tempDownloadFile).Length == totalSize)
+            {
+                //TopMost = true;
+                Activate();
+                if (!File.Exists(localFileLocation))
+                {
+                    File.Move(tempDownloadFile, localFileLocation);
+                }
+                else
+                {
+                    //const string message = "This video has been already downloaded \n Do you want to replace the old file with the new one? ";
+                    //const string caption = "Replace file ?";
+                    //var result = MessageBox.Show(message, caption,
+                    //                             MessageBoxButtons.YesNo,
+                    //                             MessageBoxIcon.Question);
+                    //if (result == DialogResult.Yes)
+                    //{
+                    File.Delete(localFileLocation);
+                    File.Copy(tempDownloadFile, localFileLocation);
+                    //                   }
+                }
+            }
+
         }
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
-            if(!downloadFinished)
+            if (!downloadFinished)
             {
                 webClient.CancelAsync();
                 webClient.Dispose();
@@ -192,42 +261,42 @@ namespace YT_scraper
                     File.Delete(tempDownloadFile);
                 }
                 catch (Exception ex)
-                { 
+                {
 
                 }
             }
-            
+
         }
-        protected void Downloader_FormClosing(object sender , FormClosingEventArgs e)
+        protected void Downloader_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!downloadFinished)
             {
                 CloseCancel(e);
-                
+
             }
-            
+
         }
 
         public static void CloseCancel(FormClosingEventArgs e)
         {
-            const string message = "Closing this window will cancel the download ,Your progress so far will be lose and you will have to redownload the file from the start. \n\n Are you sure you want to close this window? ";
+            const string message = "Closing this window will cancel the download ,Your progress so far will be lost and you will have to redownload the file from the start. \n\n Are you sure you want to close this window? ";
             const string caption = "Cancel Download ?";
             var result = MessageBox.Show(message, caption,
                                          MessageBoxButtons.YesNo,
                                          MessageBoxIcon.Question);
             e.Cancel = (result == DialogResult.No);
         }
-        
-        private void  getHours (long time ,out int hours ,out long remaining)
+
+        private void getHours(long time, out int hours, out long remaining)
         {
             hours = (int)((time / 1000) / 3600);
             remaining = time - (hours * 3600 * 1000);
         }
-        private void getMinutes (long time, out int minutes , out long remaining )
+        private void getMinutes(long time, out int minutes, out long remaining)
         {
             minutes = (int)((time / 1000) / 60);
             remaining = time - (minutes * 60 * 1000);
         }
- 
+
     }
 }

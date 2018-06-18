@@ -29,75 +29,75 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoDownloader));
-            this.labRemote = new System.Windows.Forms.Label();
+            this.labRemoteInfo = new System.Windows.Forms.Label();
             this.labRemoteLink = new System.Windows.Forms.LinkLabel();
-            this.labLocal = new System.Windows.Forms.Label();
+            this.labLocalInfo = new System.Windows.Forms.Label();
             this.labLocalFile = new System.Windows.Forms.Label();
-            this.labFileSize = new System.Windows.Forms.Label();
+            this.labFileSizeInfo = new System.Windows.Forms.Label();
             this.labFileSizeValue = new System.Windows.Forms.Label();
             this.labDownloadSize = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labDownloadSizeInfo = new System.Windows.Forms.Label();
             this.labDownSpeed = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labDownSpeedInfo = new System.Windows.Forms.Label();
             this.labTimeRemaining = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labRemainingTimeInfo = new System.Windows.Forms.Label();
             this.progressBarDownload = new System.Windows.Forms.ProgressBar();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOpenFile = new System.Windows.Forms.Button();
             this.btnOpenFolder = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // labRemote
+            // labRemoteInfo
             // 
-            this.labRemote.AutoSize = true;
-            this.labRemote.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labRemote.Location = new System.Drawing.Point(12, 9);
-            this.labRemote.Name = "labRemote";
-            this.labRemote.Size = new System.Drawing.Size(64, 16);
-            this.labRemote.TabIndex = 0;
-            this.labRemote.Text = "Remote : ";
+            this.labRemoteInfo.AutoSize = true;
+            this.labRemoteInfo.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labRemoteInfo.Location = new System.Drawing.Point(12, 9);
+            this.labRemoteInfo.Name = "labRemoteInfo";
+            this.labRemoteInfo.Size = new System.Drawing.Size(64, 16);
+            this.labRemoteInfo.TabIndex = 0;
+            this.labRemoteInfo.Text = "Remote : ";
             // 
             // labRemoteLink
             // 
             this.labRemoteLink.AutoSize = true;
             this.labRemoteLink.Font = new System.Drawing.Font("Century", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labRemoteLink.Location = new System.Drawing.Point(128, 10);
+            this.labRemoteLink.Location = new System.Drawing.Point(82, 9);
             this.labRemoteLink.Name = "labRemoteLink";
             this.labRemoteLink.Size = new System.Drawing.Size(35, 15);
             this.labRemoteLink.TabIndex = 1;
             this.labRemoteLink.TabStop = true;
             this.labRemoteLink.Text = "None";
             // 
-            // labLocal
+            // labLocalInfo
             // 
-            this.labLocal.AutoSize = true;
-            this.labLocal.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labLocal.Location = new System.Drawing.Point(13, 25);
-            this.labLocal.Name = "labLocal";
-            this.labLocal.Size = new System.Drawing.Size(52, 16);
-            this.labLocal.TabIndex = 2;
-            this.labLocal.Text = "Local : ";
+            this.labLocalInfo.AutoSize = true;
+            this.labLocalInfo.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labLocalInfo.Location = new System.Drawing.Point(13, 25);
+            this.labLocalInfo.Name = "labLocalInfo";
+            this.labLocalInfo.Size = new System.Drawing.Size(52, 16);
+            this.labLocalInfo.TabIndex = 2;
+            this.labLocalInfo.Text = "Local : ";
             // 
             // labLocalFile
             // 
             this.labLocalFile.AutoSize = true;
             this.labLocalFile.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labLocalFile.Location = new System.Drawing.Point(128, 25);
+            this.labLocalFile.Location = new System.Drawing.Point(82, 25);
             this.labLocalFile.Name = "labLocalFile";
             this.labLocalFile.Size = new System.Drawing.Size(39, 16);
             this.labLocalFile.TabIndex = 3;
             this.labLocalFile.Text = "None";
             this.labLocalFile.Click += new System.EventHandler(this.labLocalFile_Click);
             // 
-            // labFileSize
+            // labFileSizeInfo
             // 
-            this.labFileSize.AutoSize = true;
-            this.labFileSize.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labFileSize.Location = new System.Drawing.Point(12, 57);
-            this.labFileSize.Name = "labFileSize";
-            this.labFileSize.Size = new System.Drawing.Size(71, 16);
-            this.labFileSize.TabIndex = 4;
-            this.labFileSize.Text = "File Size : ";
+            this.labFileSizeInfo.AutoSize = true;
+            this.labFileSizeInfo.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labFileSizeInfo.Location = new System.Drawing.Point(12, 57);
+            this.labFileSizeInfo.Name = "labFileSizeInfo";
+            this.labFileSizeInfo.Size = new System.Drawing.Size(71, 16);
+            this.labFileSizeInfo.TabIndex = 4;
+            this.labFileSizeInfo.Text = "File Size : ";
             // 
             // labFileSizeValue
             // 
@@ -119,15 +119,15 @@
             this.labDownloadSize.TabIndex = 6;
             this.labDownloadSize.Text = "NA";
             // 
-            // label3
+            // labDownloadSizeInfo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 73);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 16);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Downloaded : ";
+            this.labDownloadSizeInfo.AutoSize = true;
+            this.labDownloadSizeInfo.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labDownloadSizeInfo.Location = new System.Drawing.Point(12, 73);
+            this.labDownloadSizeInfo.Name = "labDownloadSizeInfo";
+            this.labDownloadSizeInfo.Size = new System.Drawing.Size(91, 16);
+            this.labDownloadSizeInfo.TabIndex = 7;
+            this.labDownloadSizeInfo.Text = "Downloaded : ";
             // 
             // labDownSpeed
             // 
@@ -139,15 +139,15 @@
             this.labDownSpeed.TabIndex = 8;
             this.labDownSpeed.Text = "0kb/s";
             // 
-            // label5
+            // labDownSpeedInfo
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(13, 89);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 16);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Down Speed : ";
+            this.labDownSpeedInfo.AutoSize = true;
+            this.labDownSpeedInfo.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labDownSpeedInfo.Location = new System.Drawing.Point(13, 89);
+            this.labDownSpeedInfo.Name = "labDownSpeedInfo";
+            this.labDownSpeedInfo.Size = new System.Drawing.Size(92, 16);
+            this.labDownSpeedInfo.TabIndex = 9;
+            this.labDownSpeedInfo.Text = "Down Speed : ";
             // 
             // labTimeRemaining
             // 
@@ -159,15 +159,15 @@
             this.labTimeRemaining.TabIndex = 10;
             this.labTimeRemaining.Text = "infinity";
             // 
-            // label7
+            // labRemainingTimeInfo
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 120);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(120, 16);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Remaining Time : ";
+            this.labRemainingTimeInfo.AutoSize = true;
+            this.labRemainingTimeInfo.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labRemainingTimeInfo.Location = new System.Drawing.Point(12, 120);
+            this.labRemainingTimeInfo.Name = "labRemainingTimeInfo";
+            this.labRemainingTimeInfo.Size = new System.Drawing.Size(120, 16);
+            this.labRemainingTimeInfo.TabIndex = 11;
+            this.labRemainingTimeInfo.Text = "Remaining Time : ";
             // 
             // progressBarDownload
             // 
@@ -217,23 +217,25 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(555, 213);
             this.Controls.Add(this.btnOpenFolder);
             this.Controls.Add(this.btnOpenFile);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.progressBarDownload);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.labRemainingTimeInfo);
             this.Controls.Add(this.labTimeRemaining);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.labDownSpeedInfo);
             this.Controls.Add(this.labDownSpeed);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labDownloadSizeInfo);
             this.Controls.Add(this.labDownloadSize);
             this.Controls.Add(this.labFileSizeValue);
-            this.Controls.Add(this.labFileSize);
+            this.Controls.Add(this.labFileSizeInfo);
             this.Controls.Add(this.labLocalFile);
-            this.Controls.Add(this.labLocal);
+            this.Controls.Add(this.labLocalInfo);
             this.Controls.Add(this.labRemoteLink);
-            this.Controls.Add(this.labRemote);
+            this.Controls.Add(this.labRemoteInfo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "VideoDownloader";
@@ -246,18 +248,18 @@
 
         #endregion
 
-        private System.Windows.Forms.Label labRemote;
+        private System.Windows.Forms.Label labRemoteInfo;
         private System.Windows.Forms.LinkLabel labRemoteLink;
-        private System.Windows.Forms.Label labLocal;
+        private System.Windows.Forms.Label labLocalInfo;
         private System.Windows.Forms.Label labLocalFile;
-        private System.Windows.Forms.Label labFileSize;
+        private System.Windows.Forms.Label labFileSizeInfo;
         private System.Windows.Forms.Label labFileSizeValue;
         private System.Windows.Forms.Label labDownloadSize;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labDownloadSizeInfo;
         private System.Windows.Forms.Label labDownSpeed;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labDownSpeedInfo;
         private System.Windows.Forms.Label labTimeRemaining;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labRemainingTimeInfo;
         private System.Windows.Forms.ProgressBar progressBarDownload;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOpenFile;
