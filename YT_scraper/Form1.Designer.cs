@@ -44,8 +44,6 @@ namespace YT_scraper
             this.MenuItemDownload = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemOpenInBrowser = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemOpenVLC = new System.Windows.Forms.ToolStripMenuItem();
-            this.labStatus = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -94,7 +92,7 @@ namespace YT_scraper
             this.listResults.GridLines = true;
             this.listResults.Location = new System.Drawing.Point(9, 62);
             this.listResults.Name = "listResults";
-            this.listResults.Size = new System.Drawing.Size(1002, 381);
+            this.listResults.Size = new System.Drawing.Size(1002, 396);
             this.listResults.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listResults.TabIndex = 0;
             this.listResults.UseCompatibleStateImageBehavior = false;
@@ -156,23 +154,6 @@ namespace YT_scraper
             this.toolStripMenuItemOpenVLC.Text = "Open with VLC Player";
             this.toolStripMenuItemOpenVLC.Click += new System.EventHandler(this.toolStripMenuItemOpenVLC_Click);
             // 
-            // labStatus
-            // 
-            this.labStatus.AutoSize = true;
-            this.labStatus.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labStatus.Location = new System.Drawing.Point(19, 513);
-            this.labStatus.Name = "labStatus";
-            this.labStatus.Size = new System.Drawing.Size(148, 16);
-            this.labStatus.TabIndex = 2;
-            this.labStatus.Text = "Status : Not downloading ";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(179, 513);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(837, 16);
-            this.progressBar1.TabIndex = 3;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -202,7 +183,7 @@ namespace YT_scraper
             this.tabControl1.Location = new System.Drawing.Point(4, 31);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1033, 476);
+            this.tabControl1.Size = new System.Drawing.Size(1033, 494);
             this.tabControl1.TabIndex = 5;
             // 
             // tabPage1
@@ -213,8 +194,8 @@ namespace YT_scraper
             this.tabPage1.Controls.Add(this.listResults);
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(1025, 446);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1025, 464);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Search";
             // 
@@ -223,8 +204,6 @@ namespace YT_scraper
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1039, 537);
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.labStatus);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -238,7 +217,6 @@ namespace YT_scraper
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -257,8 +235,6 @@ namespace YT_scraper
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemOpenInBrowser;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemOpenVLC;
         private ToolStripMenuItem MenuItemDownload;
-        private Label labStatus;
-        private ProgressBar progressBar1;
         private SaveFileDialog saveFileDialog1;
         private PictureBox pictureBox1;
         private Panel panel1;
