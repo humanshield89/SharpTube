@@ -15,11 +15,11 @@ using YT_scraper.Workers;
 
 namespace YT_scraper
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         List<VideoItem> results = new List<VideoItem>();
         Process process = new Process();
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
