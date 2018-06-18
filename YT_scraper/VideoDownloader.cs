@@ -160,8 +160,12 @@ namespace YT_scraper
             totalSize = e.TotalBytesToReceive;
             if (!downloadStarted)
             {
-                Visible = true;
-                downloadStarted = true;
+                if (lastProgress > 0)
+                {
+                    Visible = true;
+                    downloadStarted = true;
+                }
+
             }
 
         }
