@@ -51,11 +51,22 @@ namespace YT_scraper
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.menuStripMainForm = new System.Windows.Forms.MenuStrip();
+            this.ToolStripMenuIteFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemEdition = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemLicense = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemContributing = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItEmemailUS = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.menuStripMainForm.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtSearchQuery
@@ -218,11 +229,87 @@ namespace YT_scraper
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "UpjKlOM7KQ4_small.jpg");
             // 
+            // menuStripMainForm
+            // 
+            this.menuStripMainForm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuIteFile,
+            this.ToolStripMenuItemEdition,
+            this.ToolStripMenuItemAbout});
+            this.menuStripMainForm.Location = new System.Drawing.Point(0, 0);
+            this.menuStripMainForm.Name = "menuStripMainForm";
+            this.menuStripMainForm.Size = new System.Drawing.Size(1039, 24);
+            this.menuStripMainForm.TabIndex = 6;
+            this.menuStripMainForm.Text = "menuStrip2";
+            // 
+            // ToolStripMenuIteFile
+            // 
+            this.ToolStripMenuIteFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemExit});
+            this.ToolStripMenuIteFile.Name = "ToolStripMenuIteFile";
+            this.ToolStripMenuIteFile.Size = new System.Drawing.Size(37, 20);
+            this.ToolStripMenuIteFile.Text = "File";
+            // 
+            // ToolStripMenuItemEdition
+            // 
+            this.ToolStripMenuItemEdition.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemSettings});
+            this.ToolStripMenuItemEdition.Name = "ToolStripMenuItemEdition";
+            this.ToolStripMenuItemEdition.Size = new System.Drawing.Size(56, 20);
+            this.ToolStripMenuItemEdition.Text = "Edition";
+            // 
+            // ToolStripMenuItemAbout
+            // 
+            this.ToolStripMenuItemAbout.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemLicense,
+            this.ToolStripMenuItemHelp,
+            this.ToolStripMenuItemContributing,
+            this.ToolStripMenuItEmemailUS});
+            this.ToolStripMenuItemAbout.Name = "ToolStripMenuItemAbout";
+            this.ToolStripMenuItemAbout.Size = new System.Drawing.Size(52, 20);
+            this.ToolStripMenuItemAbout.Text = "About";
+            // 
+            // ToolStripMenuItemExit
+            // 
+            this.ToolStripMenuItemExit.Name = "ToolStripMenuItemExit";
+            this.ToolStripMenuItemExit.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemExit.Text = "Exit";
+            // 
+            // ToolStripMenuItemSettings
+            // 
+            this.ToolStripMenuItemSettings.Name = "ToolStripMenuItemSettings";
+            this.ToolStripMenuItemSettings.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemSettings.Text = "Settings";
+            // 
+            // ToolStripMenuItemLicense
+            // 
+            this.ToolStripMenuItemLicense.Name = "ToolStripMenuItemLicense";
+            this.ToolStripMenuItemLicense.Size = new System.Drawing.Size(213, 22);
+            this.ToolStripMenuItemLicense.Text = "License";
+            // 
+            // ToolStripMenuItemHelp
+            // 
+            this.ToolStripMenuItemHelp.Name = "ToolStripMenuItemHelp";
+            this.ToolStripMenuItemHelp.Size = new System.Drawing.Size(213, 22);
+            this.ToolStripMenuItemHelp.Text = "Help";
+            // 
+            // ToolStripMenuItemContributing
+            // 
+            this.ToolStripMenuItemContributing.Name = "ToolStripMenuItemContributing";
+            this.ToolStripMenuItemContributing.Size = new System.Drawing.Size(213, 22);
+            this.ToolStripMenuItemContributing.Text = "Contributing & Source code";
+            // 
+            // ToolStripMenuItEmemailUS
+            // 
+            this.ToolStripMenuItEmemailUS.Name = "ToolStripMenuItEmemailUS";
+            this.ToolStripMenuItEmemailUS.Size = new System.Drawing.Size(213, 22);
+            this.ToolStripMenuItEmemailUS.Text = "Email US";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1039, 537);
+            this.Controls.Add(this.menuStripMainForm);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -234,7 +321,10 @@ namespace YT_scraper
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.menuStripMainForm.ResumeLayout(false);
+            this.menuStripMainForm.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -260,6 +350,16 @@ namespace YT_scraper
         private TabPage tabPage1;
         private ToolStripMenuItem loadingToolStripMenuItem;
         private ImageList imageList1;
+        private MenuStrip menuStripMainForm;
+        private ToolStripMenuItem ToolStripMenuIteFile;
+        private ToolStripMenuItem ToolStripMenuItemExit;
+        private ToolStripMenuItem ToolStripMenuItemEdition;
+        private ToolStripMenuItem ToolStripMenuItemSettings;
+        private ToolStripMenuItem ToolStripMenuItemAbout;
+        private ToolStripMenuItem ToolStripMenuItemLicense;
+        private ToolStripMenuItem ToolStripMenuItemHelp;
+        private ToolStripMenuItem ToolStripMenuItemContributing;
+        private ToolStripMenuItem ToolStripMenuItEmemailUS;
     }
 }
 
