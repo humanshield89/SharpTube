@@ -87,14 +87,9 @@ namespace YT_scraper
             try
             {
 
-                // saveFileDialog1.DefaultExt = videoInfo.VideoExtension;
-                // saveFileDialog1.ShowDialog(); ;
-                // Console.WriteLine(saveFileDialog1.FileName);
-                var youTube = YouTube.Default; // starting point for YouTube actions
-                var video = youTube.GetVideo(videoItem.url); // gets a Video object with info about the video
-                                                             //MessageBox.Show(downloadFolder+ @"\" + video.FullName);
+                var youTube = YouTube.Default; 
+                var video = youTube.GetVideo(videoItem.url); 
 
-                //File.WriteAllBytes(downloadFolder +@"\"+ video.FullName, video.GetBytes());
                 tempDownloadFile = Path.GetTempPath() + @"\YT_Utility/" + video.FullName;
                 if (File.Exists(tempDownloadFile))
                 {
@@ -163,14 +158,14 @@ namespace YT_scraper
                     webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadFinished);
                     webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
                     webClient.DownloadFileAsync(new Uri(video.Uri), tempDownloadFile);
-                    //startTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+                    startTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
                     labRemoteLink.Text = VideoURL;
                     labLocalFile.Text = $"[{video.Resolution}]" + video.FullName;
                     Text = "Downloading " + $"[{video.Resolution}]" + video.FullName;
                  }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message ,"Network Error");
                 }
             else
             {
