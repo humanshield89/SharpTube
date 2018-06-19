@@ -81,6 +81,7 @@ namespace YT_scraper
             this.txtSearchQuery.Text = "Enter Keyword ,Video URL ,ID or Channel it\'s magic!";
             this.txtSearchQuery.Click += new System.EventHandler(this.txtSearchQuery_Click);
             this.txtSearchQuery.TextChanged += new System.EventHandler(this.txtSearchQuery_TextChanged);
+            this.txtSearchQuery.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearchQuery_KeyDown);
             // 
             // btnSearch
             // 
@@ -317,6 +318,7 @@ namespace YT_scraper
             this.ClientSize = new System.Drawing.Size(1039, 537);
             this.Controls.Add(this.menuStripMainForm);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";

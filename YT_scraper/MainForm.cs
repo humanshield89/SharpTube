@@ -287,5 +287,13 @@ namespace YT_scraper
             var url = "mailto:rachidboudjelida@gmail.com?subject=CharpTube&body=Dear%20Humanshield";
             Process.Start(url);
         }
+
+        private void txtSearchQuery_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSearch_Click(sender, null);
+            }
+        }
     }
 }
