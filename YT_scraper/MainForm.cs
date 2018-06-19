@@ -22,6 +22,7 @@ namespace YT_scraper
         public MainForm()
         {
             InitializeComponent();
+            // check VLC 
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -162,24 +163,32 @@ namespace YT_scraper
         private void toolStripMenuItemOpenVLC_Click(object sender, EventArgs e)
 
         {
-            try
+            string vlcPath = FilesUtilities.GetVlcPath();
+            if (vlcPath != null)
             {
-                process.Close();
-                process.Dispose();
-                ProcessStartInfo start = new ProcessStartInfo();
-                // Enter in the command line arguments, everything you would enter after the executable name itself
-                start.Arguments = results[listResults.FocusedItem.Index].url;
-                // Enter the executable to run, including the complete path
-                start.FileName = "c:/VLC/vlc.exe";
-                start.CreateNoWindow = false;
-                start.WindowStyle = ProcessWindowStyle.Maximized;
-                process = Process.Start(start);
-                process.WaitForExit();
+                try
+                {
+                    process.Close();
+                    process.Dispose();
+                    ProcessStartInfo start = new ProcessStartInfo();
+                    // Enter in the command line arguments, everything you would enter after the executable name itself
+                    start.Arguments = results[listResults.FocusedItem.Index].url;
+                    // Enter the executable to run, including the complete path
+                    start.FileName = vlcPath;
+                    start.CreateNoWindow = false;
+                    start.WindowStyle = ProcessWindowStyle.Maximized;
+                    process = Process.Start(start);
+                    process.WaitForExit();
+                }
+                catch (Exception exception)
+                {
+                    // do nothing
+                    MessageBox.Show(exception.Message);
+                }
             }
-            catch (Exception exception)
+            else
             {
-                // do nothing
-                MessageBox.Show(exception.Message);
+                MessageBox.Show("Couldn't find VLC player \n Please make sure VLC is installed on your system ","File not found vlc.exe");
             }
 
             //process.Start("c:/VLC/vlc.exe", results[listResults.FocusedItem.Index].url);
