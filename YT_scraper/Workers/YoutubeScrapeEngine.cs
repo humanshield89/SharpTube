@@ -20,10 +20,18 @@ namespace YT_scraper.Workers
             using (WebClient webClient = new WebClient())
             {
                 string url = urlBuilder(searchQuery);
-                string data = webClient.DownloadString(urlBuilder(searchQuery));
+                string data;
+                try
+                {
+                    data = webClient.DownloadString(urlBuilder(searchQuery));
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
                 //webClient.DownloadFile(url , "result");
                 //string data = File.ReadAllText("result");
-                
+
                 ScrapeCriteria scrapeCriteria = new ScrapeCriteria(data , Constants.pattern );
                 MatchCollection matches = scraper.scrape(scrapeCriteria);
                 foreach (Match element in matches)

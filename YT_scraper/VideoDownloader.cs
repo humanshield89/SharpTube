@@ -51,7 +51,7 @@ namespace YT_scraper
                 {
                     File.Delete(tempDownloadFile);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
 
                 }
@@ -104,7 +104,7 @@ namespace YT_scraper
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("ERROR ", ex.Message);
+                        MessageBox.Show(ex.Message, "ERROR ");
                         Dispose();
                     }
 
@@ -155,7 +155,7 @@ namespace YT_scraper
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("ERROR ", ex.Message);
+                            MessageBox.Show(ex.Message ,"ERROR ");
                             Dispose();
                         }
 
@@ -263,7 +263,7 @@ namespace YT_scraper
                 {
                     File.Delete(tempDownloadFile);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
 
                 }

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading;
+using System.Windows.Forms;
 using VideoLibrary;
 namespace YT_scraper.Data
 {
@@ -111,7 +112,14 @@ namespace YT_scraper.Data
         private void getVideos()
         {
             var youTube = YouTube.Default;
-            videos = youTube.GetAllVideosAsync(url).Result;
+            try
+            {
+                videos = youTube.GetAllVideosAsync(url).Result;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Check your internet connection and try again","Network Error");
+            }
             if (title == null)
                 title = videos.ElementAt(0).Title;
         }
