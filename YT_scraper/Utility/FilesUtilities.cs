@@ -34,7 +34,7 @@ namespace YT_scraper.Utility
             Constants.programFileX64Path + vlan + vlc + exe , Constants.programFileX64Path + vlc + exe ,
             "c:/" + vlc + exe , "c:/"+vlan + vlc +exe
             };
-            if (VlcPath == null)
+            if (VlcPath == null || File.Exists(VlcPath) )
             {
                 foreach (var p in paths )
                 {

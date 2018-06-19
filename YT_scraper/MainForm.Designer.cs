@@ -53,10 +53,10 @@ namespace YT_scraper
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.menuStripMainForm = new System.Windows.Forms.MenuStrip();
             this.ToolStripMenuIteFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemEdition = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemEdition = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemContributing = new System.Windows.Forms.ToolStripMenuItem();
@@ -249,13 +249,25 @@ namespace YT_scraper
             this.ToolStripMenuIteFile.Size = new System.Drawing.Size(37, 20);
             this.ToolStripMenuIteFile.Text = "File";
             // 
+            // ToolStripMenuItemExit
+            // 
+            this.ToolStripMenuItemExit.Name = "ToolStripMenuItemExit";
+            this.ToolStripMenuItemExit.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemExit.Text = "Exit";
+            // 
             // ToolStripMenuItemEdition
             // 
             this.ToolStripMenuItemEdition.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemSettings});
             this.ToolStripMenuItemEdition.Name = "ToolStripMenuItemEdition";
-            this.ToolStripMenuItemEdition.Size = new System.Drawing.Size(56, 20);
+            this.ToolStripMenuItemEdition.Size = new System.Drawing.Size(122, 20);
             this.ToolStripMenuItemEdition.Text = "Edition";
+            // 
+            // ToolStripMenuItemSettings
+            // 
+            this.ToolStripMenuItemSettings.Name = "ToolStripMenuItemSettings";
+            this.ToolStripMenuItemSettings.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemSettings.Text = "Settings";
             // 
             // ToolStripMenuItemAbout
             // 
@@ -267,18 +279,6 @@ namespace YT_scraper
             this.ToolStripMenuItemAbout.Name = "ToolStripMenuItemAbout";
             this.ToolStripMenuItemAbout.Size = new System.Drawing.Size(52, 20);
             this.ToolStripMenuItemAbout.Text = "About";
-            // 
-            // ToolStripMenuItemExit
-            // 
-            this.ToolStripMenuItemExit.Name = "ToolStripMenuItemExit";
-            this.ToolStripMenuItemExit.Size = new System.Drawing.Size(180, 22);
-            this.ToolStripMenuItemExit.Text = "Exit";
-            // 
-            // ToolStripMenuItemSettings
-            // 
-            this.ToolStripMenuItemSettings.Name = "ToolStripMenuItemSettings";
-            this.ToolStripMenuItemSettings.Size = new System.Drawing.Size(180, 22);
-            this.ToolStripMenuItemSettings.Text = "Settings";
             // 
             // ToolStripMenuItemLicense
             // 
@@ -314,7 +314,7 @@ namespace YT_scraper
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Youtube Utillity";
+            this.Text = "CharpTube™";
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
