@@ -28,8 +28,15 @@ namespace YT_scraper
         {
             btnSearch.Enabled = false;
             listResults.Items.Clear();
-            if (txtSearchQuery.Text == "") return;
-            results = YoutubeScrapeEngine.scrapeYoutube(txtSearchQuery.Text);
+            string searchQuery = txtSearchQuery.Text;
+            if (txtSearchQuery.Text.StartsWith("https://www.youtube.com/watch?v=") ||
+                txtSearchQuery.Text.StartsWith("http://www.youtube.com/watch?v=") || txtSearchQuery.Text.StartsWith("www.youtube.com/watch?v="))
+            {
+                searchQuery = txtSearchQuery.Text.Split('=')[1].Split('&')[0];
+            }
+
+            results = YoutubeScrapeEngine.scrapeYoutube(searchQuery);
+
             if (results.Any())
             {
                 int i = 0;
@@ -42,7 +49,7 @@ namespace YT_scraper
                     string path = video.DownloadThumbSmallImage();
                     imageList.Images.Add(Image.FromFile(path));
 
-                    string[] arr = { "", "" + i, video.title, video.url };
+                    string[] arr = { "", "" + i + 1, video.title, video.url };
                     ListViewItem l = new ListViewItem(arr)
                     {
                         Font = new Font("Century Gothic", 10.75F, FontStyle.Regular, GraphicsUnit.Point, 0),
@@ -149,5 +156,23 @@ namespace YT_scraper
             //process.Start("c:/VLC/vlc.exe", results[listResults.FocusedItem.Index].url);
         }
 
+        private void txtSearchQuery_Click(object sender, EventArgs e)
+        {
+            if (txtSearchQuery.Text == "Enter Keyword ,Video URL ,ID or Channel it's magic!")
+                txtSearchQuery.Text = String.Empty;
+        }
+
+        private void txtSearchQuery_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearchQuery.Text == "Enter Keyword ,Video URL ,ID or Channel it's magic!" || txtSearchQuery.Text == string.Empty ||
+                txtSearchQuery.Text == " ")
+            {
+                btnSearch.Enabled = false;
+            }
+            else
+            {
+                btnSearch.Enabled = true;
+            }
+        }
     }
 }

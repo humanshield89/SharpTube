@@ -50,21 +50,21 @@ namespace YT_scraper
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TabUrlDownload = new System.Windows.Forms.TabPage();
+            this.pbThumbNail = new System.Windows.Forms.PictureBox();
             this.PanelUrlDownloadHeader = new System.Windows.Forms.Panel();
             this.BtnDownload = new System.Windows.Forms.Button();
             this.txtBoxUrlCode = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.pbThumbNail = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TabUrlDownload.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbThumbNail)).BeginInit();
             this.PanelUrlDownloadHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbThumbNail)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearchQuery
@@ -76,6 +76,9 @@ namespace YT_scraper
             this.txtSearchQuery.Name = "txtSearchQuery";
             this.txtSearchQuery.Size = new System.Drawing.Size(566, 33);
             this.txtSearchQuery.TabIndex = 0;
+            this.txtSearchQuery.Text = "Enter Keyword ,Video URL ,ID or Channel it\'s magic!";
+            this.txtSearchQuery.Click += new System.EventHandler(this.txtSearchQuery_Click);
+            this.txtSearchQuery.TextChanged += new System.EventHandler(this.txtSearchQuery_TextChanged);
             // 
             // btnSearch
             // 
@@ -85,7 +88,7 @@ namespace YT_scraper
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(261, 34);
             this.btnSearch.TabIndex = 1;
-            this.btnSearch.Text = "Search";
+            this.btnSearch.Text = "Go!";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
@@ -197,10 +200,10 @@ namespace YT_scraper
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.TabUrlDownload);
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.TabUrlDownload);
             this.tabControl1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(4, 31);
+            this.tabControl1.Location = new System.Drawing.Point(12, 31);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1033, 494);
@@ -217,6 +220,14 @@ namespace YT_scraper
             this.TabUrlDownload.TabIndex = 1;
             this.TabUrlDownload.Text = "YT URL Downloader";
             this.TabUrlDownload.UseVisualStyleBackColor = true;
+            // 
+            // pbThumbNail
+            // 
+            this.pbThumbNail.Location = new System.Drawing.Point(7, 85);
+            this.pbThumbNail.Name = "pbThumbNail";
+            this.pbThumbNail.Size = new System.Drawing.Size(240, 180);
+            this.pbThumbNail.TabIndex = 1;
+            this.pbThumbNail.TabStop = false;
             // 
             // PanelUrlDownloadHeader
             // 
@@ -271,14 +282,6 @@ namespace YT_scraper
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Search";
             // 
-            // pbThumbNail
-            // 
-            this.pbThumbNail.Location = new System.Drawing.Point(7, 85);
-            this.pbThumbNail.Name = "pbThumbNail";
-            this.pbThumbNail.Size = new System.Drawing.Size(240, 180);
-            this.pbThumbNail.TabIndex = 1;
-            this.pbThumbNail.TabStop = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,11 +299,11 @@ namespace YT_scraper
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.TabUrlDownload.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbThumbNail)).EndInit();
             this.PanelUrlDownloadHeader.ResumeLayout(false);
             this.PanelUrlDownloadHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbThumbNail)).EndInit();
             this.ResumeLayout(false);
 
         }
