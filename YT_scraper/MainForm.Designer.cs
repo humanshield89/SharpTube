@@ -252,28 +252,30 @@ namespace YT_scraper
             // ToolStripMenuItemExit
             // 
             this.ToolStripMenuItemExit.Name = "ToolStripMenuItemExit";
-            this.ToolStripMenuItemExit.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemExit.Size = new System.Drawing.Size(92, 22);
             this.ToolStripMenuItemExit.Text = "Exit";
+            this.ToolStripMenuItemExit.Click += new System.EventHandler(this.ToolStripMenuItemExit_Click);
             // 
             // ToolStripMenuItemEdition
             // 
             this.ToolStripMenuItemEdition.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemSettings});
             this.ToolStripMenuItemEdition.Name = "ToolStripMenuItemEdition";
-            this.ToolStripMenuItemEdition.Size = new System.Drawing.Size(122, 20);
+            this.ToolStripMenuItemEdition.Size = new System.Drawing.Size(56, 20);
             this.ToolStripMenuItemEdition.Text = "Edition";
             // 
             // ToolStripMenuItemSettings
             // 
             this.ToolStripMenuItemSettings.Name = "ToolStripMenuItemSettings";
-            this.ToolStripMenuItemSettings.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemSettings.Size = new System.Drawing.Size(116, 22);
             this.ToolStripMenuItemSettings.Text = "Settings";
+            this.ToolStripMenuItemSettings.Click += new System.EventHandler(this.ToolStripMenuItemSettings_Click);
             // 
             // ToolStripMenuItemAbout
             // 
             this.ToolStripMenuItemAbout.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItemLicense,
             this.ToolStripMenuItemHelp,
+            this.ToolStripMenuItemLicense,
             this.ToolStripMenuItemContributing,
             this.ToolStripMenuItEmemailUS});
             this.ToolStripMenuItemAbout.Name = "ToolStripMenuItemAbout";
@@ -285,24 +287,28 @@ namespace YT_scraper
             this.ToolStripMenuItemLicense.Name = "ToolStripMenuItemLicense";
             this.ToolStripMenuItemLicense.Size = new System.Drawing.Size(213, 22);
             this.ToolStripMenuItemLicense.Text = "License";
+            this.ToolStripMenuItemLicense.Click += new System.EventHandler(this.ToolStripMenuItemLicense_Click);
             // 
             // ToolStripMenuItemHelp
             // 
             this.ToolStripMenuItemHelp.Name = "ToolStripMenuItemHelp";
             this.ToolStripMenuItemHelp.Size = new System.Drawing.Size(213, 22);
-            this.ToolStripMenuItemHelp.Text = "Help";
+            this.ToolStripMenuItemHelp.Text = "About CharpTube™";
+            this.ToolStripMenuItemHelp.Click += new System.EventHandler(this.ToolStripMenuItemHelp_Click);
             // 
             // ToolStripMenuItemContributing
             // 
             this.ToolStripMenuItemContributing.Name = "ToolStripMenuItemContributing";
             this.ToolStripMenuItemContributing.Size = new System.Drawing.Size(213, 22);
             this.ToolStripMenuItemContributing.Text = "Contributing & Source code";
+            this.ToolStripMenuItemContributing.Click += new System.EventHandler(this.ToolStripMenuItemContributing_Click);
             // 
             // ToolStripMenuItEmemailUS
             // 
             this.ToolStripMenuItEmemailUS.Name = "ToolStripMenuItEmemailUS";
             this.ToolStripMenuItEmemailUS.Size = new System.Drawing.Size(213, 22);
             this.ToolStripMenuItEmemailUS.Text = "Email US";
+            this.ToolStripMenuItEmemailUS.Click += new System.EventHandler(this.ToolStripMenuItEmemailUS_Click);
             // 
             // MainForm
             // 

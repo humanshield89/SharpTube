@@ -31,10 +31,10 @@ namespace YT_scraper.Data
 
         public string DownloadThumbHQImage()
         {
-            string path = Path.GetTempPath() + "thumbs/" + id + "_HQ.jpg";
+            string path = SSettings.getCacheFolder() + id + "_HQ.jpg";
             using (WebClient webClient = new WebClient())
             {
-                Directory.CreateDirectory(Path.GetTempPath() + "thumbs");
+                Directory.CreateDirectory(SSettings.getCacheFolder());
 
 
                 try
@@ -53,10 +53,10 @@ namespace YT_scraper.Data
 
         public string DownloadThumbNormalImage()
         {
-            string path = Path.GetTempPath() + "thumbs/" + id + "_normal.jpg";
+            string path = SSettings.getCacheFolder() + id + "_normal.jpg";
             using (WebClient webClient = new WebClient())
             {
-                Directory.CreateDirectory(Path.GetTempPath() + "thumbs");
+                Directory.CreateDirectory(SSettings.getCacheFolder());
 
 
                 try
@@ -75,10 +75,10 @@ namespace YT_scraper.Data
 
         public string DownloadThumbSmallImage()
         {
-            string path = Path.GetTempPath() + "thumbs/" + id + "_small.jpg";
+            string path = SSettings.getCacheFolder() + id + "_small.jpg";
             using (WebClient webClient = new WebClient())
             {
-                Directory.CreateDirectory(Path.GetTempPath() + "thumbs");
+                Directory.CreateDirectory(SSettings.getCacheFolder());
 
                 
                 try

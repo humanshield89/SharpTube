@@ -16,9 +16,11 @@ namespace YT_scraper
         [STAThread]
         static void Main()
         {
-            Directory.CreateDirectory(Constants.downloadFolder);
-            Directory.CreateDirectory(Path.GetTempPath() + @"\YT_Utility/");
-            foreach (var str in Directory.GetFiles(Path.GetTempPath() + @"\YT_Utility/") )
+            SSettings.getCurrentLocation();
+            SSettings.loadSettings();
+            Directory.CreateDirectory(SSettings.getDownloadFolder());
+            Directory.CreateDirectory(SSettings.getCacheFolder());
+            foreach (var str in Directory.GetFiles(SSettings.getCacheFolder()))
             {
                 try
                 {
@@ -29,7 +31,7 @@ namespace YT_scraper
                     Console.WriteLine(e.Message);
                 }
             }
-            foreach (var str in Directory.GetFiles(Path.GetTempPath() + @"\thumbs/"))
+            foreach (var str in Directory.GetFiles(SSettings.getCacheFolder()))
             {
                 try
                 {

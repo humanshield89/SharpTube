@@ -82,50 +82,12 @@ namespace YT_scraper
             FilesUtilities.ExploreFile(localFileLocation);
         }
 
-        public void DownloadVideo(VideoItem videoItem)
-        {
-            try
-            {
-
-                var youTube = YouTube.Default; 
-                var video = youTube.GetVideo(videoItem.url); 
-
-                tempDownloadFile = Path.GetTempPath() + @"\YT_Utility/" + video.FullName;
-                if (File.Exists(tempDownloadFile))
-                {
-                    try
-                    {
-                        File.Delete(tempDownloadFile);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "ERROR ");
-                        Dispose();
-                    }
-
-                }
-                webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadFinished);
-                webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-                webClient.DownloadFileAsync(new Uri(video.Uri), tempDownloadFile);
-                startTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-                localFileLocation = Constants.downloadFolder + @"\" + video.FullName;
-                labRemoteLink.Text = videoItem.url;
-                labLocalFile.Text = video.FullName;
-                this.Text = "Downloading " + video.FullName;
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
+ 
         public void DownloadVideo(YouTubeVideo video, string VideoURL)
         {
             // TODO if a file like this already exists warn the user of the duplicated download 
             // don't waste his 
-            localFileLocation = Constants.downloadFolder + @"\" + $"[{video.Resolution}]" + video.FullName;
+            localFileLocation = SSettings.getDownloadFolder() + @"\" + $"[{video.Resolution}]" + video.FullName;
             bool download = true;
             if (File.Exists(localFileLocation))
             {
@@ -141,7 +103,7 @@ namespace YT_scraper
             if(download)
                 try
                 {
-                    tempDownloadFile = Path.GetTempPath() + @"\YT_Utility/" + $"[{video.Resolution}]" + video.FullName;
+                    tempDownloadFile = SSettings.getCacheFolder() + $"[{video.Resolution}]" + video.FullName;
                     if (File.Exists(tempDownloadFile))
                     {
                         try
@@ -167,6 +129,7 @@ namespace YT_scraper
                 {
                     MessageBox.Show(ex.Message ,"Network Error");
                 }
+            
             else
             {
                 webClient.Dispose();

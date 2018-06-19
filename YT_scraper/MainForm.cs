@@ -17,6 +17,7 @@ namespace YT_scraper
 {
     public partial class MainForm : Form
     {
+        Form RichMessageBox = new Form();
         List<VideoItem> results = new List<VideoItem>();
         Process process = new Process();
         public MainForm()
@@ -51,7 +52,7 @@ namespace YT_scraper
             {
                 int i = 0;
 
-                Directory.CreateDirectory(Path.GetTempPath() + "thumbs");
+                Directory.CreateDirectory(SSettings.getCacheFolder());
                 foreach (VideoItem video in results)
                 {
                     string path = video.DownloadThumbSmallImage();
@@ -213,5 +214,78 @@ namespace YT_scraper
             }
         }
 
+        private void ToolStripMenuItemExit_Click(object sender, EventArgs e)
+        {
+            const string message = "Are you sure You wanna quit CharpTube?";
+            const string caption = "Exit ?";
+            var result = MessageBox.Show(message, caption,
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+                Application.Exit();
+               
+            
+        }
+
+        private void ToolStripMenuItemSettings_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show("This feature is still under construction we apologize for this deception :/","Comming soon");
+            new Settings().ShowDialog();
+        }
+
+        private void ToolStripMenuItemLicense_Click(object sender, EventArgs e)
+        {
+
+            //string message = File.ReadAllText("lisence.rtf");
+            ShowRichMessageBox(" LICENSE", "./assets/lisence.rtf");
+        }
+
+        private void ShowRichMessageBox(string title, string file)
+        {
+            RichTextBox rtbMessage = new RichTextBox();
+            rtbMessage.LoadFile(file);
+            //rtbMessage.Text = message;
+            rtbMessage.Dock = DockStyle.Fill;
+            rtbMessage.ReadOnly = true;
+            rtbMessage.BorderStyle = BorderStyle.None;
+            rtbMessage.BackColor = Color.White;
+
+            Button btn = new Button();
+            btn.Text = "OK";
+            btn.Dock = DockStyle.Bottom;
+            btn.Font = new Font("Century Gothic", 16.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn.Click += new EventHandler(LicenseOkButton_Click);
+            btn.Size = new Size(500, 40);
+
+            RichMessageBox = new Form();
+            RichMessageBox.Text = title;
+            RichMessageBox.StartPosition = FormStartPosition.CenterScreen;
+            RichMessageBox.Size = new Size(500, 600);
+            
+            RichMessageBox.Controls.Add(rtbMessage);
+            RichMessageBox.Controls.Add(btn);
+            RichMessageBox.ShowDialog();
+        }
+
+        private void LicenseOkButton_Click(object sender ,EventArgs e)
+        {
+            RichMessageBox.Dispose();
+        }
+
+        private void ToolStripMenuItemHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"CharpTube™ {Constants.APP_VERSION} \n simple adfree youtube search/download ", $"CharpTube™ {Constants.APP_VERSION}");
+        }
+
+        private void ToolStripMenuItemContributing_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/humanshield89/Youtube_Utility");
+        }
+
+        private void ToolStripMenuItEmemailUS_Click(object sender, EventArgs e)
+        {
+            var url = "mailto:rachidboudjelida@gmail.com?subject=CharpTube&body=Dear%20Humanshield";
+            Process.Start(url);
+        }
     }
 }

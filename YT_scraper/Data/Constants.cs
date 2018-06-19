@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,10 +10,12 @@ namespace YT_scraper.Data
 {
     struct Constants
     {
+        public static readonly string APP_VERSION = "1.0.0";
         public static string programFileX86Path = "C:/Program Files (x86)/";
         public static string programFileX64Path = "C:/Program Files/";
 
-        public static string downloadFolder = KnownFolders.GetPath(KnownFolder.Downloads)+ @"\Youtube Utility";
+        public static string DefaultdownloadFolder = KnownFolders.GetPath(KnownFolder.Downloads)+ @"\CharpTube";
+        public static string DefaultCacheFolder = Path.GetTempPath() + @"\CharpTube/";
         public static string pattern = @"<a href=""/watch\?v=(.*?)"" class=""yt-uix-tile-link yt-ui-ellipsis yt-ui-ellipsis-2 yt-uix-sessionlink      spf-link "" data-sessionlink="".*?"".*?title=""(.*?)"".*?>(.*?)</a>";
     }
 }
