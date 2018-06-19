@@ -187,9 +187,6 @@ namespace YT_scraper
             long now = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             long timeDiference = now - lastTime;
             labDownSpeed.Text = ((e.BytesReceived) / (now - startTime)) + " Kb/s";
-            // x time ====> 100% 
-            // now ========> e.percentage
-            // remaining time = now * 100 / now-start
             if (e.ProgressPercentage > 0)
             {
                 long time = 1 ;
@@ -250,16 +247,8 @@ namespace YT_scraper
                 }
                 else
                 {
-                    //const string message = "This video has been already downloaded \n Do you want to replace the old file with the new one? ";
-                    //const string caption = "Replace file ?";
-                    //var result = MessageBox.Show(message, caption,
-                    //                             MessageBoxButtons.YesNo,
-                    //                             MessageBoxIcon.Question);
-                    //if (result == DialogResult.Yes)
-                    //{
                     File.Delete(localFileLocation);
                     File.Copy(tempDownloadFile, localFileLocation);
-                    //                   }
                 }
             }
 

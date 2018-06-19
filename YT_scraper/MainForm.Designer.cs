@@ -42,6 +42,7 @@ namespace YT_scraper
             this.LinkColum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.MenuItemDownload = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemOpenInBrowser = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemOpenVLC = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
@@ -54,7 +55,7 @@ namespace YT_scraper
             this.txtBoxUrlCode = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.loadingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pbThumbNail = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -63,6 +64,7 @@ namespace YT_scraper
             this.PanelUrlDownloadHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbThumbNail)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearchQuery
@@ -139,7 +141,7 @@ namespace YT_scraper
             this.toolStripMenuItemOpenVLC});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.ShowImageMargin = false;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(164, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(164, 70);
             // 
             // MenuItemDownload
             // 
@@ -149,6 +151,12 @@ namespace YT_scraper
             this.MenuItemDownload.Name = "MenuItemDownload";
             this.MenuItemDownload.Size = new System.Drawing.Size(163, 22);
             this.MenuItemDownload.Text = "Download";
+            // 
+            // loadingToolStripMenuItem
+            // 
+            this.loadingToolStripMenuItem.Name = "loadingToolStripMenuItem";
+            this.loadingToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.loadingToolStripMenuItem.Text = "Loading ...";
             // 
             // toolStripMenuItemOpenInBrowser
             // 
@@ -200,6 +208,7 @@ namespace YT_scraper
             // 
             // TabUrlDownload
             // 
+            this.TabUrlDownload.Controls.Add(this.pbThumbNail);
             this.TabUrlDownload.Controls.Add(this.PanelUrlDownloadHeader);
             this.TabUrlDownload.Location = new System.Drawing.Point(4, 26);
             this.TabUrlDownload.Name = "TabUrlDownload";
@@ -223,12 +232,12 @@ namespace YT_scraper
             // 
             // BtnDownload
             // 
-            this.BtnDownload.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDownload.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDownload.Location = new System.Drawing.Point(845, 25);
             this.BtnDownload.Name = "BtnDownload";
             this.BtnDownload.Size = new System.Drawing.Size(171, 33);
             this.BtnDownload.TabIndex = 2;
-            this.BtnDownload.Text = "Download";
+            this.BtnDownload.Text = "Load Information";
             this.BtnDownload.UseVisualStyleBackColor = true;
             // 
             // txtBoxUrlCode
@@ -262,11 +271,13 @@ namespace YT_scraper
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Search";
             // 
-            // loadingToolStripMenuItem
+            // pbThumbNail
             // 
-            this.loadingToolStripMenuItem.Name = "loadingToolStripMenuItem";
-            this.loadingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.loadingToolStripMenuItem.Text = "Loading ...";
+            this.pbThumbNail.Location = new System.Drawing.Point(7, 85);
+            this.pbThumbNail.Name = "pbThumbNail";
+            this.pbThumbNail.Size = new System.Drawing.Size(240, 180);
+            this.pbThumbNail.TabIndex = 1;
+            this.pbThumbNail.TabStop = false;
             // 
             // MainForm
             // 
@@ -289,6 +300,7 @@ namespace YT_scraper
             this.PanelUrlDownloadHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbThumbNail)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -319,6 +331,7 @@ namespace YT_scraper
         private TextBox txtBoxUrlCode;
         private PictureBox pictureBox2;
         private ToolStripMenuItem loadingToolStripMenuItem;
+        private PictureBox pbThumbNail;
     }
 }
 

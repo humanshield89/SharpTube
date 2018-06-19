@@ -36,34 +36,24 @@ namespace YT_scraper
                 ImageList imageList = new ImageList();
                 imageList.ImageSize = new Size(120, 80);
                 imageList.ColorDepth = ColorDepth.Depth32Bit;
-                using (WebClient webClient = new WebClient())
+                Directory.CreateDirectory(Path.GetTempPath() + "thumbs");
+                foreach (VideoItem video in results)
                 {
-                    Directory.CreateDirectory(Path.GetTempPath() + "thumbs");
-                    foreach (VideoItem video in results)
+                    string path = video.DownloadThumbSmallImage();
+                    imageList.Images.Add(Image.FromFile(path));
+
+                    string[] arr = { "", "" + i, video.title, video.url };
+                    ListViewItem l = new ListViewItem(arr)
                     {
-                        string path = Path.GetTempPath() + "thumbs/" + video.id + ".jpg";
-                        try
-                        {
-                            if (!File.Exists(path))
-                                webClient.DownloadFile(video.imgUrl, path);
-                            imageList.Images.Add(Image.FromFile(path));
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine(ex.StackTrace);
-                        }
-                        string[] arr = { "", "" + i, video.title, video.url };
-                        ListViewItem l = new ListViewItem(arr)
-                        {
-                            Font = new Font("Century Gothic", 10.75F, FontStyle.Regular, GraphicsUnit.Point, 0),
-                            ImageIndex = i
-                        };
-                        listResults.Items.Add(l);
+                        Font = new Font("Century Gothic", 10.75F, FontStyle.Regular, GraphicsUnit.Point, 0),
+                        ImageIndex = i
+                    };
+                    listResults.Items.Add(l);
 
 
-                        i++;
-                    }
+                    i++;
                 }
+
                 listResults.SmallImageList = imageList;
             }
             else
@@ -81,27 +71,27 @@ namespace YT_scraper
 
         private void listResults_Mouse_Clicked(object sender, MouseEventArgs e)
         {
-            if ( e.Button == MouseButtons.Right)
+            if (e.Button == MouseButtons.Right)
             {
                 if (listResults.FocusedItem.Bounds.Contains(e.Location))
                 {
                     int index = listResults.FocusedItem.Index;
                     contextMenuStrip1.Show(Cursor.Position);
                     if (results[index].videos != null)
-                    if (results[index].videos.Any())
-                    {
-                         MenuItemDownload.DropDownItems.Clear();
-                        foreach (var video in results[index].videos)
+                        if (results[index].videos.Any())
                         {
-                            if(video.Resolution != -1)
+                            MenuItemDownload.DropDownItems.Clear();
+                            foreach (var video in results[index].videos)
                             {
-                                ToolStripMenuItem t = new ToolStripMenuItem();
-                                t.Text = video.Resolution + " " + video.FileExtension;
-                                t.Click += new EventHandler(MenuItemDownloadResolution_Click);
-                                MenuItemDownload.DropDownItems.Add(t);
+                                if (video.Resolution != -1)
+                                {
+                                    ToolStripMenuItem t = new ToolStripMenuItem();
+                                    t.Text = video.Resolution + " " + video.FileExtension;
+                                    t.Click += new EventHandler(MenuItemDownloadResolution_Click);
+                                    MenuItemDownload.DropDownItems.Add(t);
+                                }
                             }
                         }
-                    }
 
                 }
             }
@@ -115,17 +105,17 @@ namespace YT_scraper
 
             int index = listResults.FocusedItem.Index;
             VideoItem video = results[index];
-            openNewDownloadForm(video.getYouTubeVideoWithResAndExt(res,infos[1]) , results[index].url);
+            openNewDownloadForm(video.getYouTubeVideoWithResAndExt(res, infos[1]), results[index].url);
         }
 
-        private void openNewDownloadForm(YouTubeVideo item , string url)
+        private void openNewDownloadForm(YouTubeVideo item, string url)
         {
             VideoDownloader videoDownloader = new VideoDownloader();
             videoDownloader.Visible = true;
-            videoDownloader.DownloadVideo(item , url);
+            videoDownloader.DownloadVideo(item, url);
         }
 
- 
+
 
 
         private void toolStripMenuItemOpenInBrowser_Click(object sender, EventArgs e)
@@ -134,7 +124,7 @@ namespace YT_scraper
         }
 
         private void toolStripMenuItemOpenVLC_Click(object sender, EventArgs e)
-            
+
         {
             try
             {
