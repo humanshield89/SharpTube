@@ -49,22 +49,12 @@ namespace YT_scraper
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.TabUrlDownload = new System.Windows.Forms.TabPage();
-            this.pbThumbNail = new System.Windows.Forms.PictureBox();
-            this.PanelUrlDownloadHeader = new System.Windows.Forms.Panel();
-            this.BtnDownload = new System.Windows.Forms.Button();
-            this.txtBoxUrlCode = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.TabUrlDownload.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbThumbNail)).BeginInit();
-            this.PanelUrlDownloadHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -202,73 +192,12 @@ namespace YT_scraper
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.TabUrlDownload);
             this.tabControl1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(12, 31);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1033, 494);
             this.tabControl1.TabIndex = 5;
-            // 
-            // TabUrlDownload
-            // 
-            this.TabUrlDownload.Controls.Add(this.pbThumbNail);
-            this.TabUrlDownload.Controls.Add(this.PanelUrlDownloadHeader);
-            this.TabUrlDownload.Location = new System.Drawing.Point(4, 26);
-            this.TabUrlDownload.Name = "TabUrlDownload";
-            this.TabUrlDownload.Padding = new System.Windows.Forms.Padding(3);
-            this.TabUrlDownload.Size = new System.Drawing.Size(1025, 464);
-            this.TabUrlDownload.TabIndex = 1;
-            this.TabUrlDownload.Text = "YT URL Downloader";
-            this.TabUrlDownload.UseVisualStyleBackColor = true;
-            // 
-            // pbThumbNail
-            // 
-            this.pbThumbNail.Location = new System.Drawing.Point(7, 85);
-            this.pbThumbNail.Name = "pbThumbNail";
-            this.pbThumbNail.Size = new System.Drawing.Size(240, 180);
-            this.pbThumbNail.TabIndex = 1;
-            this.pbThumbNail.TabStop = false;
-            // 
-            // PanelUrlDownloadHeader
-            // 
-            this.PanelUrlDownloadHeader.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.PanelUrlDownloadHeader.Controls.Add(this.BtnDownload);
-            this.PanelUrlDownloadHeader.Controls.Add(this.txtBoxUrlCode);
-            this.PanelUrlDownloadHeader.Controls.Add(this.pictureBox2);
-            this.PanelUrlDownloadHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelUrlDownloadHeader.Location = new System.Drawing.Point(3, 3);
-            this.PanelUrlDownloadHeader.Name = "PanelUrlDownloadHeader";
-            this.PanelUrlDownloadHeader.Size = new System.Drawing.Size(1019, 75);
-            this.PanelUrlDownloadHeader.TabIndex = 0;
-            // 
-            // BtnDownload
-            // 
-            this.BtnDownload.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDownload.Location = new System.Drawing.Point(845, 25);
-            this.BtnDownload.Name = "BtnDownload";
-            this.BtnDownload.Size = new System.Drawing.Size(171, 33);
-            this.BtnDownload.TabIndex = 2;
-            this.BtnDownload.Text = "Load Information";
-            this.BtnDownload.UseVisualStyleBackColor = true;
-            // 
-            // txtBoxUrlCode
-            // 
-            this.txtBoxUrlCode.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxUrlCode.Location = new System.Drawing.Point(152, 25);
-            this.txtBoxUrlCode.Name = "txtBoxUrlCode";
-            this.txtBoxUrlCode.Size = new System.Drawing.Size(687, 33);
-            this.txtBoxUrlCode.TabIndex = 1;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(142, 68);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // tabPage1
             // 
@@ -281,7 +210,7 @@ namespace YT_scraper
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1025, 464);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Search";
+            this.tabPage1.Text = "Search YouTube!";
             // 
             // imageList1
             // 
@@ -304,11 +233,6 @@ namespace YT_scraper
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.TabUrlDownload.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbThumbNail)).EndInit();
-            this.PanelUrlDownloadHeader.ResumeLayout(false);
-            this.PanelUrlDownloadHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -334,13 +258,7 @@ namespace YT_scraper
         private Panel panel1;
         private TabControl tabControl1;
         private TabPage tabPage1;
-        private TabPage TabUrlDownload;
-        private Panel PanelUrlDownloadHeader;
-        private Button BtnDownload;
-        private TextBox txtBoxUrlCode;
-        private PictureBox pictureBox2;
         private ToolStripMenuItem loadingToolStripMenuItem;
-        private PictureBox pbThumbNail;
         private ImageList imageList1;
     }
 }
