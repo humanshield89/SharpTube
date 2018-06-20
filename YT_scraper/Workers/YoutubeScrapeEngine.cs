@@ -19,11 +19,20 @@ namespace YT_scraper.Workers
             List<VideoItem> results = new List<VideoItem>();
             using (WebClient webClient = new WebClient())
             {
-                string url = urlBuilder(searchQuery);
+                string url;
+                if (!searchQuery.Contains(' ') && searchQuery.Length != 11)
+                {
+                    url = urlBuilder(searchQuery);
+                }
+                else
+                {
+                    url = "https://www.youtube.com/results?search_query="+searchQuery;
+                }
+                 
                 string data;
                 try
                 {
-                    data = webClient.DownloadString(urlBuilder(searchQuery));
+                    data = webClient.DownloadString(url);
                 }
                 catch (Exception ex)
                 {
