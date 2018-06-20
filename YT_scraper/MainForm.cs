@@ -217,7 +217,7 @@ namespace YT_scraper
 
         private void ToolStripMenuItemExit_Click(object sender, EventArgs e)
         {
-            const string message = "Are you sure You wanna quit CharpTube?";
+            const string message = "Are you sure You wanna quit SharpTube?";
             const string caption = "Exit ?";
             var result = MessageBox.Show(message, caption,
                                          MessageBoxButtons.YesNo,
@@ -275,7 +275,7 @@ namespace YT_scraper
 
         private void ToolStripMenuItemHelp_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"CharpTube™ {Constants.APP_VERSION} \n simple adfree youtube search/download ", $"CharpTube™ {Constants.APP_VERSION}");
+            MessageBox.Show($"SharpTube™ {Constants.APP_VERSION} \n simple adfree youtube search/download ", $"SharpTube™ {Constants.APP_VERSION}");
         }
 
         private void ToolStripMenuItemContributing_Click(object sender, EventArgs e)
@@ -285,7 +285,7 @@ namespace YT_scraper
 
         private void ToolStripMenuItEmemailUS_Click(object sender, EventArgs e)
         {
-            var url = "mailto:rachidboudjelida@gmail.com?subject=CharpTube&body=Dear%20Humanshield";
+            var url = "mailto:rachidboudjelida@gmail.com?subject=SharpTube&body=Dear%20Humanshield";
             Process.Start(url);
         }
 

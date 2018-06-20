@@ -57,8 +57,8 @@ namespace YT_scraper
             this.ToolStripMenuItemEdition = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItemLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemContributing = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItEmemailUS = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
@@ -283,19 +283,19 @@ namespace YT_scraper
             this.ToolStripMenuItemAbout.Size = new System.Drawing.Size(52, 20);
             this.ToolStripMenuItemAbout.Text = "About";
             // 
+            // ToolStripMenuItemHelp
+            // 
+            this.ToolStripMenuItemHelp.Name = "ToolStripMenuItemHelp";
+            this.ToolStripMenuItemHelp.Size = new System.Drawing.Size(213, 22);
+            this.ToolStripMenuItemHelp.Text = "About SharpTube™";
+            this.ToolStripMenuItemHelp.Click += new System.EventHandler(this.ToolStripMenuItemHelp_Click);
+            // 
             // ToolStripMenuItemLicense
             // 
             this.ToolStripMenuItemLicense.Name = "ToolStripMenuItemLicense";
             this.ToolStripMenuItemLicense.Size = new System.Drawing.Size(213, 22);
             this.ToolStripMenuItemLicense.Text = "License";
             this.ToolStripMenuItemLicense.Click += new System.EventHandler(this.ToolStripMenuItemLicense_Click);
-            // 
-            // ToolStripMenuItemHelp
-            // 
-            this.ToolStripMenuItemHelp.Name = "ToolStripMenuItemHelp";
-            this.ToolStripMenuItemHelp.Size = new System.Drawing.Size(213, 22);
-            this.ToolStripMenuItemHelp.Text = "About CharpTube™";
-            this.ToolStripMenuItemHelp.Click += new System.EventHandler(this.ToolStripMenuItemHelp_Click);
             // 
             // ToolStripMenuItemContributing
             // 
@@ -322,7 +322,7 @@ namespace YT_scraper
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "CharpTube™";
+            this.Text = "SharpTube™";
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
