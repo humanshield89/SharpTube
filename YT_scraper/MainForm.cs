@@ -164,22 +164,23 @@ namespace YT_scraper
         private void toolStripMenuItemOpenVLC_Click(object sender, EventArgs e)
 
         {
-            string vlcPath = FilesUtilities.GetVlcPath();
+            string vlcPath = SSettings.GetVlcFile();
             if (vlcPath != null)
             {
                 try
                 {
-                    process.Close();
-                    process.Dispose();
+                    //process.Close();
+                    //process.Dispose();
                     ProcessStartInfo start = new ProcessStartInfo();
-                    // Enter in the command line arguments, everything you would enter after the executable name itself
-                    start.Arguments = results[listResults.FocusedItem.Index].url;
-                    // Enter the executable to run, including the complete path
+                    start.Arguments = "--one-instance " + results[listResults.FocusedItem.Index].url;
+                    
                     start.FileName = vlcPath;
+                    //string[] args = { "--one-instance", "--playlist-enqueue"};
+                    
                     start.CreateNoWindow = false;
-                    start.WindowStyle = ProcessWindowStyle.Maximized;
+                    //start.WindowStyle = ProcessWindowStyle.Maximized;
                     process = Process.Start(start);
-                    process.WaitForExit();
+                    //process.WaitForExit();
                 }
                 catch (Exception exception)
                 {
