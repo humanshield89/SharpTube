@@ -33,17 +33,6 @@ namespace YT_scraper
                     Console.WriteLine(e.Message);
                 }
             }
-            foreach (var str in Directory.GetFiles(SSettings.getCacheFolder()))
-            {
-                try
-                {
-                    File.Delete(str);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.Message);
-                }
-            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
